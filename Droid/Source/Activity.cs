@@ -1,12 +1,12 @@
-﻿
+﻿using System;
+using System.Reactive.Disposables;
+using System.Reactive.Linq;
+using System.Reactive.Subjects;
+
 using Android.App;
 using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
-using System.Reactive.Subjects;
-using System;
-using System.Reactive.Disposables;
-using System.Reactive.Linq;
 
 namespace InnovifySample.Droid
 {
@@ -37,7 +37,8 @@ namespace InnovifySample.Droid
 
       Nav
         .Select(_ => (int) _)
-        .Subscribe(_ => pager.SetCurrentItem(_, true))
+        .Subscribe(_ => 
+           pager.SetCurrentItem(_, true))
         .AddTo(Disposables);
 
     }
