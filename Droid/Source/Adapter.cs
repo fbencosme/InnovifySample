@@ -1,5 +1,4 @@
-﻿
-using Android.Support.V4.App;
+﻿using Android.Support.V4.App;
 
 namespace InnovifySample.Droid
 {
@@ -13,13 +12,12 @@ namespace InnovifySample.Droid
 
     public override Fragment GetItem(int position)
     {
-      switch (position)
+      switch ((Section) position)
       {
-        case 0 : return new Welcome();
-        case 1 : return new Contact();
-        case 2 : return new Bye();
-          
-        default: return null;
+        case Section.Welcome : return new Welcome();
+        case Section.Contact : return new Contact();
+        case Section.Bye     : return new Bye();
+        default              : return null;
       }
     }
   }
