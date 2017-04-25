@@ -30,7 +30,9 @@
   <ItemGroup>
     <Compile Include="MyClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\ContactService.cs" />
+    <Compile Include="Source\API.cs" />
+    <Compile Include="Source\SignupManager.cs" />
+    <Compile Include="Source\Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -42,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Source\" />
