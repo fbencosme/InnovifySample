@@ -13,4 +13,5 @@
 	<string name="contactUs">Contact us</string>
 	<string name="bye">We’ll get back to you within 24 business hours.</string>
 	<string name="send">Send another</string>
+	<string name="required">This field is required</string>
 </resources>
