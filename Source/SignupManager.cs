@@ -3,7 +3,7 @@ namespace InnovifySample
 {
   public static class SignupManager
   {
-    public static IObservable<string> SignUp(API api, SignUp signUp) => 
+    public static IObservable<string> SignUp(API api, ContactInfo signUp) => 
     api.SignUp(signUp);
   }
 }

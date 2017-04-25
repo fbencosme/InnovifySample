@@ -15,7 +15,7 @@ namespace InnovifySample
       this.client = client;
     }
 
-    internal IObservable<string> SignUp(SignUp signUp)
+    internal IObservable<string> SignUp(ContactInfo signUp)
     {
       var request = new RestRequest("dummy/end/point", Method.POST);
       request.AddBody(signUp);
