@@ -1,17 +1,12 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Text;
 
-using Android.App;
-using Android.Content;
 using Android.OS;
-using Android.Runtime;
-using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Android.App;
 
 namespace InnovifySample.Droid
 {
@@ -20,10 +15,14 @@ namespace InnovifySample.Droid
    */
   public class Contact : BaseFragment
   {
+
     protected override int LayoutRes => Resource.Layout.Contact;
+
     public override void OnViewCreated(View view, Bundle savedInstanceState)
     {
       base.OnViewCreated(view, savedInstanceState);
+
+      var progess  = new ProgressDialog.Builder(Context).Create();
 
       var name     = view.FindViewById<EditText>(Resource.Id.name);
       var email    = view.FindViewById<EditText>(Resource.Id.email);
@@ -31,7 +30,7 @@ namespace InnovifySample.Droid
       var website  = view.FindViewById<EditText>(Resource.Id.website);
       var position = view.FindViewById<EditText>(Resource.Id.position);
       var message  = view.FindViewById<EditText>(Resource.Id.message);
-      var contact  = view.FindViewById<Button>(Resource.Id.contactUs);
+      var contact  = view.FindViewById<Button>  (Resource.Id.contactUs);
 
       Observable.CombineLatest(
         name    .RxTextChanged().StartWith(string.Empty),
@@ -42,20 +41,28 @@ namespace InnovifySample.Droid
         message .RxTextChanged().StartWith(string.Empty)
         , Tuple.Create)
       .SampleLatest(contact.RxClick())
-       .Do(_ =>
+      .Do(_ =>
          OnClean(name, email, phone, website, position, message))
+      .Do(_ => progess.Show())
       .SelectMany(_ =>
         OnValidate(
-          Tuple.Create(name, _.Item1),
-          Tuple.Create(email, _.Item2),
-          Tuple.Create(phone, _.Item3),
-          Tuple.Create(website, _.Item4),
+          Tuple.Create(name    , _.Item1),
+          Tuple.Create(email   , _.Item2),
+          Tuple.Create(phone   , _.Item3),
+          Tuple.Create(website , _.Item4),
           Tuple.Create(position, _.Item5),
-          Tuple.Create(message, _.Item6))
+          Tuple.Create(message , _.Item6))
+        .Catch<ContactInfo, Exception>(e => {
+          progess.Dismiss();
+          return Observable.Empty<ContactInfo>();
+      })
      );
 
     }
 
+    /**
+     * Clean the error inputs
+     */
     void OnClean(
      EditText name,
      EditText email,
@@ -72,6 +79,9 @@ namespace InnovifySample.Droid
       message.Error  = null;
     }
 
+    /**
+    * Basic validator.
+    */
     IObservable<ContactInfo> OnValidate(
       Tuple<EditText, string> name,
       Tuple<EditText, string> email,
@@ -87,7 +97,7 @@ namespace InnovifySample.Droid
         OnValidate(position) ||
         OnValidate(message)
     
-        ? Observable.Empty<ContactInfo>()
+        ? Observable.Throw<ContactInfo>(new Exception("invalid form"))
         : Observable.Return(new ContactInfo { 
           name     = name.Item2,
           email    = email.Item2,
@@ -97,6 +107,7 @@ namespace InnovifySample.Droid
           message  = message.Item2
         });
 
+    // Input validator.
     bool OnValidate(Tuple<EditText, string> t) {
       var invalid = string.IsNullOrEmpty(t.Item2);
       if (invalid)
