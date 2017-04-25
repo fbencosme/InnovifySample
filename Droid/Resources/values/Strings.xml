@@ -2,4 +2,15 @@
 <resources>
   <string name="hello">Hello World, Click Me!</string>
   <string name="app_name">InnovifySample.Droid</string>
+	<string name="name">Your Name</string>
+	<string name="email">Email</string>
+	<string name="phone">Phone No.</string>
+	<string name="website">Website</string>
+	<string name="position">Position</string>
+	<string name="message">Message</string>
+	<string name="done">Done</string>
+	<string name="welcome">We would love to hear from you</string>
+	<string name="contactUs">Contact us</string>
+	<string name="bye">Goodbye!</string>
+	<string name="ok">Ok</string>
 </resources>
