@@ -7,7 +7,9 @@ namespace InnovifySample.Droid
 {
   [Activity(
     Label        = "InnovifySample",
-    MainLauncher = true, Icon = "@mipmap/icon")]
+    MainLauncher = true,
+    Icon         = "@mipmap/icon",
+    Theme        = "@android:style/Theme.Material")]
   public class MainActivity : FragmentActivity
   {
 

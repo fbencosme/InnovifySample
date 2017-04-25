@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:gravity="center"
         android:paddingBottom="50dp" />
     <Button
@@ -17,7 +17,7 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:layout_below="@id/bye"
-        android:text="@string/ok"
+        android:text="@string/send"
         android:layout_marginBottom="10dp"
         android:textSize="20sp"
         style="@android:style/Widget.Material.Button.Colored"

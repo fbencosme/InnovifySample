@@ -9,13 +9,16 @@ namespace InnovifySample.Droid
 
     public Adapter(FragmentManager fm) : base(fm) { }
 
-    public override int Count => 1;
+    public override int Count => 3;
 
     public override Fragment GetItem(int position)
     {
       switch (position)
       {
-        case 0 : return new Contact();
+        case 0 : return new Welcome();
+        case 1 : return new Contact();
+        case 2 : return new Bye();
+          
         default: return null;
       }
     }

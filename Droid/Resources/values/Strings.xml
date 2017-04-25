@@ -8,9 +8,9 @@
 	<string name="website">Website</string>
 	<string name="position">Position</string>
 	<string name="message">Message</string>
-	<string name="done">Done</string>
+	<string name="done">Send</string>
 	<string name="welcome">We would love to hear from you</string>
 	<string name="contactUs">Contact us</string>
-	<string name="bye">Goodbye!</string>
-	<string name="ok">Ok</string>
+	<string name="bye">We’ll get back to you within 24 business hours.</string>
+	<string name="send">Send another</string>
 </resources>
