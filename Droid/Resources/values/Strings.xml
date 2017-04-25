@@ -14,4 +14,7 @@
 	<string name="bye">We’ll get back to you within 24 business hours.</string>
 	<string name="send">Send another</string>
 	<string name="required">This field is required</string>
+	<string name="invalid.form">Invalid form!</string>
+	<string name="contacting">Contacting...</string>
+	<string name="contact.sent">Contact message sent!</string>
 </resources>

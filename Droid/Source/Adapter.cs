@@ -4,10 +4,10 @@ using Android.Support.V4.App;
 namespace InnovifySample.Droid
 {
   
-  public class Adapter : FragmentPagerAdapter
+  public class StepsAdapter : FragmentPagerAdapter
   {
 
-    public Adapter(FragmentManager fm) : base(fm) { }
+    public StepsAdapter(FragmentManager fm) : base(fm) { }
 
     public override int Count => 3;
 

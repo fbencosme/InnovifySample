@@ -14,6 +14,11 @@ namespace InnovifySample.Droid
 
   public enum Section { Welcome, Contact, Bye }
 
+  public interface IForm
+  {
+    void Clean();
+  }
+
   public interface IContact { 
     
     ISubject<Section> Nav { get ;}
