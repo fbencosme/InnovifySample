@@ -1,9 +1,9 @@
-﻿using System;
+﻿
 using Android.Support.V4.App;
-using System.Runtime.Remoting.Messaging;
 
 namespace InnovifySample.Droid
 {
+  
   public class Adapter : FragmentPagerAdapter
   {
 
